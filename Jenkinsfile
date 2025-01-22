@@ -18,10 +18,11 @@ pipeline {
         ]) {
           powershell '''
             $ErrorActionPreference = "Stop"
-            kubectl --token $env:api_token --server https://192.168.49.2:8443 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml 2>&1
+            kubectl --token $env:api_token --server=https://192.168.49.2:49448 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml 2>&1
           '''
         }
       }
     }
   }
 }
+
