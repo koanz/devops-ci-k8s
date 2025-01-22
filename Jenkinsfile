@@ -17,7 +17,7 @@ pipeline {
           string(credentialsId: 'kubernete-jenkis-server-account', variable: 'api_token')
         ]) {
           bat '''
-            kubectl --token %api_token% --server https://192.168.49.2:50210 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml
+            kubectl --token %api_token% --server https://127.0.0.1:50210 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml
           '''
         }
       }
