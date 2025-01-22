@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('clone repository') {
       steps {
-        sh '''java -version
+        bat '''java -version
 mvn --version
 git --version'''
       }
