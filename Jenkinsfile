@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('clone repository') {
       steps {
-        powershell '''
+        cmd '''
           java -version
           mvn --version
           git --version
@@ -16,7 +16,7 @@ pipeline {
         withCredentials(bindings: [
           string(credentialsId: 'kubernete-jenkis-server-account', variable: 'api_token')
         ]) {
-          powershell '''
+          cmd '''
             kubectl --token %api_token% --server https://127.0.0.1:52916 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml
           '''
         }
