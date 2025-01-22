@@ -4,9 +4,9 @@ pipeline {
     stage('clone repository') {
       steps {
         powershell '''
-          java -version 2>&1
-          mvn --version 2>&1
-          git --version 2>&1
+          java -version
+          mvn --version
+          git --version
         '''
       }
     }
@@ -18,7 +18,7 @@ pipeline {
         ]) {
           powershell '''
             $ErrorActionPreference = "Stop"
-            kubectl --token $env:api_token --server=https://192.168.49.2:49448 --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml 2>&1
+            kubectl --token $env:api_token --server=https://127.0.0.1:49448/ --insecure-skip-tls-verify=true apply -f deployment-billing-app-back-jenkins.yaml 2>&1
           '''
         }
       }
