@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Verify Tools') {
             steps {
-                bat 'kubectl --version'
+                bat 'kubectl version --client'
             }
         }
         stage('Deploy billing App') {
