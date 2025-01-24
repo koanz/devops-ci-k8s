@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('Verify Tools') {
             steps {
-                sh 'kubectl version --client'
+                sh '''java -version
+                   mvn --version
+                   git --version
+                   kubectl version --client'''
             }
         }
         stage('Deploy billing App') {
